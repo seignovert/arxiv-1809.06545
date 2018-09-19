@@ -1,0 +1,27 @@
+env:
+  global:
+    - TEX=2018-2-LeMouelic
+    - BIB=Biblio.bib
+    - BST=arxiv-ay.bst
+    - OUT=_build
+before_install:
+- sudo apt-get update
+- sudo apt-get install texlive-latex-extra
+    texlive-publishers
+    texlive-fonts-recommended
+    texlive-humanities
+    texlive-science
+script:
+- mkdir -p ${OUT}
+- pdflatex -interaction=nonstopmode -halt-on-error -output-directory ${OUT} ./${TEX}.tex
+- cp -t ${OUT} ${BIB} ${BST} ; cd ${OUT} ; bibtex ${TEX} ; cd ..
+- pdflatex -interaction=nonstopmode -halt-on-error -output-directory ${OUT} ./${TEX}.tex
+- pdflatex -interaction=nonstopmode -halt-on-error -output-directory ${OUT} ./${TEX}.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: Vub1KT2P5GNuTa0dQ2+ynaP4hDUZuH2xSt4RTDQ7143hRVb+d2dBBwIXEyh0I8Yr5i0xR12y2DGBrS6sPpzTgSk6htp6w3/dGi4ATHSuBZCQZsFYoduHT3ourlFWgn5VWDL4WTLOgNCgaOwF78gFuNiiAvvIZ70Fk9gz88XA1ZnxWUmZLe0frtZiXvQdiEvWxLulOMfhlD1ldey/FIq/N1JLKZgthetiAtua6NjAA3RpxdYRPqWJ2gR2/yRqq86e5rw2iVa1W219Lw+3K1sbN/XDFD+XkqVsqDgwhxyxzr8PHXqF4i8l/mp9YV3fCL6aWuVsbFLgLL0WrPhk+lxoUooEPQmuTahQpDnoFTMh2A0Ek7Jh1OWiSH1FHZXFP8v2WRYlonSUIEfEaiyclejb9Y3Naa95l1xIp995A+0h057Bko/RGG2f6FOncsy57GljsXWeP1Gp0A+5PdbGCWd+52wlwiEN9tRq4m4hF4dmMVTRxni361WD89w5lTgB97cBpVJRVeRri3zpWnBloWuidOogKBk4lNo4nF92OObKWEaa94BsiKbxrwatbskOgYW/PYWkMMCD7eSFktTMHLqq5I3vAG9T3ligKZHw7XyUi2KVV+DN/nYZ6hAt4Wn6eYZqcqVgRxpNeQWOvNY751AlUQKtm1lEfv9xXVaZJQtqimo=
+  file: ./${OUT}/${TEX}.pdf
+  skip_cleanup: true
+  on:
+    tags: true
