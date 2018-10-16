@@ -1,6 +1,6 @@
 env:
   global:
-    - TEX=2018-2-LeMouelic
+    - TEX=2019-LeMouelic
     - BIB=Biblio.bib
     - BST=arxiv-ay.bst
     - OUT=_build
