@@ -1,8 +1,8 @@
 The Cassini VIMS archive of Titan: from browse products to global infrared color maps
 ===
 [
-    ![Article: Le Mouélic et al. (2018b)](https://img.shields.io/badge/Article-Le%20Mou%C3%A9lic%20et%20al.%20(2018b)-green.svg)
-    ![Icarus: in press](https://img.shields.io/badge/Icarus-in%20press-yellow.svg)
+    ![Article: Le Mouélic et al. (2019)](https://img.shields.io/badge/Article-Le%20Mou%C3%A9lic%20et%20al.%20(2019)-green.svg)
+    ![Icarus: Vol 319, pp 121-132](https://img.shields.io/badge/Icarus-Vol.%20319%2C%20pp%20121--132-yellow.svg)
     ![doi: 10.1016/j.icarus.2018.09.017](https://img.shields.io/badge/doi-10.1016%2Fj.icarus.2018.09.017-blue.svg)
 ][doi]
 [
